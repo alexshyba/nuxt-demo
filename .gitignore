@@ -1,0 +1,24 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+nuxt.d.ts
+.output
+dist
+.DS_STORE
+.history
+.cache
+.data
+
+# Local Netlify folder
+.netlify
+.vercel
+
+# Local editor
+# .vscode/
+*.code-workspace
+.idea/
+
+wrangler.toml
+package-lock.json
