@@ -19,7 +19,7 @@
     "uniform:push:compositions": "uniform canvas composition push ./content/compositions",
     "uniform:publish": "uniform canvas composition push ./content/compositions --state published",
     "uniform:push": "run-s uniform:push:signals uniform:push:components uniform:push:compositions",
-    "start": "nuxt start",
+    "start": "node .output/server/index.mjs",
     "start:stackblitz": "npm install && nuxt dev",
     "postinstall": "nuxt prepare"
   },
