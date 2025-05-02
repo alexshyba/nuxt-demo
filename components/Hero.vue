@@ -1,47 +1,59 @@
 <script lang="ts" setup>
-// TODO: Add component: ComponentInstance as a prop
-defineProps<{
-  title: string;
-  text: string;
-  buttonText?: string;
-  buttonLink?: string;
-  image?: string;
-}>();
-</script>
+import type { ComponentInstance } from "@uniformdev/canvas";
+import type { UniformRichTextNodeProps } from "@uniformdev/canvas-vue";
 
+interface Props {
+  title: string;
+  description?: UniformRichTextNodeProps["node"];
+  component: ComponentInstance;
+}
+
+defineProps<Props>();
+</script>
 <template>
   <div>
-    <div class="pt-24 text-white">
-      <div
-        class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center"
-      >
-        <div
-          class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left min-h-500"
-        >
-          <p class="uppercase tracking-loose w-full">This is Uniform demo</p>
-          <h1 class="my-4 text-5xl font-bold leading-tight">{{ title }}</h1>
-          <p class="leading-normal text-2xl mb-8">{{ text }}</p>
-          <NuxtLink
-            v-if="buttonText"
-            :to="buttonLink ? buttonLink : '#'"
-            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg"
-          >
-            {{ buttonText }}
-          </NuxtLink>
-        </div>
-        <div class="w-full md:w-3/5 py-6 text-center">
-          <img
-            v-if="image"
-            :key="image"
-            class="w-full md:w-4/5 z-50 min-h-500 max-h-500"
-            :height="560"
-            :width="560"
-            :src="image"
-            :alt="buttonText"
-          />
-        </div>
-      </div>
-    </div>
-    <Splitter />
+    <UniformText
+      parameterId="title"
+      as="h1"
+      class="title"
+      placeholder="Insert a title"
+    />
+    <UniformRichText
+      parameter-id="description"
+      as="div"
+      class="description"
+      placeholder="Insert a description"
+    />
   </div>
 </template>
+
+<style scoped>
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  color: #438fd5;
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  margin: 1rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+</style>

@@ -1,19 +1,39 @@
 <template>
-  <footer class="bg-white">
-    <div class="mx-auto px-8">
-      <div class="w-full flex flex-col md:flex-row py-4">
-        <div class="flex-1 mb-6">
-          <NuxtLink
-            to="/"
-            class="text-orange-600 no-underline hover:no-underline"
-          >
-            <Logo />
-          </NuxtLink>
-        </div>
-        <p class="text-gray-900 text-right flex-1 leading-8">
-          Uniform starter kit for Nuxt.js © {{ new Date().getFullYear() }}
-        </p>
-      </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <span>Powered by</span>
+      <a href="https://uniform.dev" target="_blank" rel="noopener noreferrer">
+        <Logo width="220" />
+      </a>
+    </div>
+    <div class="uniform-buttons">
+      <ForgetMe />
     </div>
   </footer>
 </template>
+
+<style scoped>
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.uniform-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: auto;
+}
+</style>
