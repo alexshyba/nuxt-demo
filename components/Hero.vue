@@ -4,6 +4,7 @@ import type { UniformRichTextNodeProps } from "@uniformdev/canvas-vue";
 
 interface Props {
   title: string;
+  text: string;
   description?: UniformRichTextNodeProps["node"];
   component: ComponentInstance;
 }
@@ -17,6 +18,11 @@ defineProps<Props>();
       as="h1"
       class="title"
       placeholder="Insert a title"
+    />
+    <UniformText
+      parameterId="text"
+      class="description"
+      placeholder="Insert a text"
     />
     <UniformRichText
       parameter-id="description"
